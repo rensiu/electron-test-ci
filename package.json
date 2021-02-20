@@ -9,7 +9,7 @@
     "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null"
   },
   "dependencies": {
-    "native-keymap": "^2.2.1",
+    "native-keymap": "^2.0.0",
     "source-map-support": "^0.5.16"
   },
   "devDependencies": {
