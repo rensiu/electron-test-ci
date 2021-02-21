@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "electron-webpack dev",
     "compile": "electron-webpack",
-    "dist": "npm run compile && electron-builder --projectDir ../vana-release",
+    "dist": "npm run compile && node script.js && electron-builder --projectDir ../vana-release",
     "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null"
   },
   "dependencies": {
@@ -19,6 +19,6 @@
     "webpack": "~4.42.1"
   },
   "electronWebpack": {
-    "commonDistDirectory": "../vana-release"
+    "commonDistDirectory": "../vana-release/dist"
   }
 }
