@@ -17,8 +17,8 @@
         "helperBundleId": "net.xmind.vana.app.helper",
         "gatekeeperAssess": false,
         "darkModeSupport": true,
-        "entitlements": "./plist/entitlements.plist",
-        "entitlementsInherit": "./plist/entitlements.plist",
+        "entitlements": "../electron-test-ci/plist/entitlements.plist",
+        "entitlementsInherit": "../electron-test-ci/plist/entitlements.plist",
         "hardenedRuntime": true,
         "minimumSystemVersion": "10.11",
         "electronLanguages": [
