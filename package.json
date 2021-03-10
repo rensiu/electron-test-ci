@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "electron-webpack dev",
     "compile": "electron-webpack",
-    "dist": "npm run compile && electron-builder",
+    "dist": "npm run compile && electron-builder --universal",
     "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null"
   },
   "dependencies": {
@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "electron": "11.2.1",
-    "electron-builder": "^22.10.4",
+    "electron-builder": "^22.10.5",
     "electron-webpack": "^2.8.2",
     "webpack": "~4.42.1"
   }
