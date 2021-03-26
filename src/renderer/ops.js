@@ -48,12 +48,13 @@ function removeOp(ops, op, callback) {
     ops = ops.filter((m) => {
         return m !== op
     })
-    callback && callback()
+    callback && callback(ops)
 }
 
 function saveOps(ops, callback) {
     const opsPath = path.join(workspacePath, 'ops.json')
     fs.writeFileSync(opsPath, JSON.stringify(ops))
+    callback && callback()
 }
 
 function readOps() {

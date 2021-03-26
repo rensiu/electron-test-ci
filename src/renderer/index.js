@@ -19,10 +19,36 @@ const appContainer = document.getElementById('app')
 let vnode = patch(appContainer, view())
 
 function opView(op) {
+    let desc = ''
+    switch (op.type) {
+        case 'click':
+            desc = `click (${op.position.x},${op.position.y})`
+            break
+        case 'input':
+            desc = `第${ops.filter(m => m.type === 'input').indexOf(op)}个要输入的值`
+            break
+        case 'key':
+            desc = `key (${op.position.x},${op.position.y})`
+            break
+        case 'sleep':
+            desc = 'sleep 3s'
+            break
+        default:
+            break;
+    }
     return h('div.row', {}, [
         h('div', { style: { fontWeight: 'bold' } }, ops.indexOf(op)),
-        h('div', op.type === 'click' ? `(${op.position.x},${op.position.y})` : op.type === 'input' ? ops.filter(m => m.type === 'input').indexOf(op) : 'sleep 3s'),
-        h('div.btn.rm-btn', { on: { click: () => { removeOp(ops, op, callback) } } }, 'x'),
+        h('div', desc),
+        h('div.btn.rm-btn', {
+            on: {
+                click: () => {
+                    removeOp(ops, op, newOps => {
+                        ops = newOps
+                        render()
+                    })
+                }
+            }
+        }, 'x'),
     ])
 }
 
